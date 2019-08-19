@@ -36,6 +36,7 @@ LQGen::LQGen(const vector<GenParticle> & genparticles, bool throw_on_failure)/*:
             
             // now that we collected everything, fill the member variables. 
             // Use different member variables according to LQ charge.
+	    // ich schreib hier mmal was rein
             if(genp.pdgId() == 42){
                 m_LQ = genp;
                 m_TopLQ = *top;
