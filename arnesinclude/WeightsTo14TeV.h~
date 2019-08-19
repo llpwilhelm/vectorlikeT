@@ -1,0 +1,39 @@
+#ifndef WeightsTo14TeV_H
+#define WeightsTo14TeV_H
+
+#include "LHAPDF/LHAPDF.h"
+#include "TSystem.h"
+#include "UHH2/core/include/Event.h"
+
+/**
+ *  @short pdf re-weighting tool
+ *
+ *
+ */
+namespace uhh2examples {
+class WeightsTo14TeV {
+public:
+
+  ///Default constructor
+  WeightsTo14TeV(uhh2::Context & ctx, TString pdfname = "NNPDF30_lo_as_0130");
+  ///Default destructor
+  ~WeightsTo14TeV() {};
+
+ 
+  double calculateWeight(const uhh2::Event & event);
+
+  
+private:
+
+  bool m_libvalid;
+  
+  std::vector<LHAPDF::PDF*> m_pdfs;
+
+  //Handles related to 13->14TeV scaling
+  uhh2::Event::Handle<double> h_x13_1, h_x13_2, h_x14_1, h_x14_2, h_Q, h_xf13_1, h_xf13_2, h_xf14_1, h_xf14_2, h_weight13, h_weight14, h_sf;
+  uhh2::Event::Handle<int> h_f1, h_f2;
+  
+};
+
+}
+#endif

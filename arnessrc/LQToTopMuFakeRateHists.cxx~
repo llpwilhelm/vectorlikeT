@@ -1,0 +1,241 @@
+#include "../include/LQToTopMuFakeRateHists.h"
+#include "../include/HypothesisHistsOwn.h"
+#include "UHH2/core/include/Event.h"
+#include "UHH2/common/include/Utils.h"
+#include "UHH2/common/include/JetIds.h"
+#include <math.h>
+
+#include "TH1F.h"
+#include "TH2D.h"
+#include <iostream>
+
+using namespace std;
+using namespace uhh2;
+using namespace uhh2examples;
+
+LQToTopMuFakeRateHists::LQToTopMuFakeRateHists(Context & ctx, const string & dirname): Hists(ctx, dirname){
+  // book all histograms here
+  // jets
+
+
+
+  book<TH1F>("pt_alljets", "p_{T}^{jets} [GeV]", 45, 0, 1500);   
+  book<TH1F>("pt_matchingjets", "p_{T}^{jets} [GeV]", 45, 0, 1500);  
+  book<TH1F>("pt_matchingjets_fakeele", "p_{T}^{jets} [GeV]", 45, 0, 1500);   
+  book<TH1F>("pt_matchingjets_realele", "p_{T}^{jets} [GeV]", 45, 0, 1500); 
+  double bins_jetpt[4] = {0,100,200,800};
+  book<TH1F>("pt_alljets_rebin", "p_{T}^{jets} [GeV]", 3, bins_jetpt); 
+  book<TH1F>("pt_matchingjets_rebin", "p_{T}^{jets} [GeV]", 3, bins_jetpt);  
+  book<TH1F>("pt_matchingjets_rebin_fakeele", "p_{T}^{jets} [GeV]", 3, bins_jetpt); 
+  book<TH1F>("pt_matchingjets_rebin_realele", "p_{T}^{jets} [GeV]", 3, bins_jetpt); 
+
+  book<TH1F>("ele_type", "Electron types", 5, -2.5, 2.5); 
+  book<TH1F>("N_faking_jets", "Weighted number of faking jets", 1, -0.5, 0.5);   
+  book<TH1F>("N_fake_ele", "Weighted number of fake electrons", 1, -0.5, 0.5);   
+
+
+
+
+  book<TH1F>("pt_matchingjets_mu", "p_{T}^{jets} [GeV]", 45, 0, 1500);  
+  book<TH1F>("pt_matchingjets_fakemu", "p_{T}^{jets} [GeV]", 45, 0, 1500);   
+  book<TH1F>("pt_matchingjets_realmu", "p_{T}^{jets} [GeV]", 45, 0, 1500); 
+
+  book<TH1F>("pt_matchingjets_mu_rebin", "p_{T}^{jets} [GeV]", 3, bins_jetpt);  
+  book<TH1F>("pt_matchingjets_rebin_fakemu", "p_{T}^{jets} [GeV]", 3, bins_jetpt); 
+  book<TH1F>("pt_matchingjets_rebin_realmu", "p_{T}^{jets} [GeV]", 3, bins_jetpt); 
+
+  book<TH1F>("mu_type", "Muon types", 5, -2.5, 2.5); 
+  book<TH1F>("N_faking_jets_mu", "Weighted number of faking jets", 1, -0.5, 0.5);   
+  book<TH1F>("N_fake_mu", "Weighted number of fake muons", 1, -0.5, 0.5); 
+
+  book<TH1F>("Int_alljets", "Weighted number of jets", 1, -0.5, 0.5);  
+  book<TH1F>("Int_matchingjets", "Weighted number of jets matching a #mu", 1, -0.5, 0.5);  
+  book<TH1F>("Int_matchingjets_fakemu", "Weighted number of jets matching a faked #mu", 1, -0.5, 0.5); 
+  book<TH1F>("Int_matchingjets_realmu", "Weighted number of jets matching a real #mu", 1, -0.5, 0.5); 
+ 
+
+  is_mc = ctx.get("dataset_type") == "MC";
+  ZEE_finder.reset(new ZEEFinder());
+
+}
+
+
+void LQToTopMuFakeRateHists::fill(const Event & event){
+  double weight = event.weight;
+
+
+  if(event.electrons->size() >= 2){
+    pair<unsigned int,unsigned int> best_ele = ZEE_finder->search(event);
+
+    //contains booleans in the same order as event.electrons, specifying if the electron is part of the 'best combination'
+    vector<bool> is_best_ele;
+    for(unsigned int i=0; i<event.electrons->size(); i++){
+      bool is_best = false;
+      if(i == best_ele.first || i == best_ele.second) is_best = true;
+      is_best_ele.push_back(is_best);
+    }
+
+    //contains booleans in the same order as event.electrons, specifying if the electron can be matched to a gen-electron, for MC only
+    vector<bool> is_real_ele;
+    for(unsigned int i=0; i<event.electrons->size(); i++){
+      bool is_real = false;
+      if(is_mc){
+	for(unsigned int j=0; j<event.genparticles->size(); j++){
+	  //consider only electrons
+	  if(fabs(event.genparticles->at(j).pdgId()) != 11) continue;
+	  
+	  //try to match
+	  if(deltaR(event.genparticles->at(j), event.electrons->at(i)) < 0.1) is_real = true;
+	}
+      }
+
+      is_real_ele.push_back(is_real);
+      if(is_mc && !is_real && !is_best_ele[i]) hist("N_fake_ele")->Fill(0.,weight);
+    }
+
+    //The same for muons
+    vector<bool> is_real_muon;
+    if(event.muons->size() >= 1){   
+      for(unsigned int i=0; i<event.muons->size(); i++){
+	bool is_real = false;
+	if(is_mc){
+	  for(unsigned int j=0; j<event.genparticles->size(); j++){
+	    //consider only muons
+	    if(fabs(event.genparticles->at(j).pdgId()) != 13) continue;
+	  
+	    //try to match
+	    if(deltaR(event.genparticles->at(j), event.muons->at(i)) < 0.1) is_real = true;
+	  }
+	}
+	is_real_muon.push_back(is_real);
+	if(!is_real) hist("N_fake_mu")->Fill(0.,weight);
+      }
+    }
+
+    //fill ele-type histogram
+    if(is_mc){
+      for(unsigned int i=0; i<event.electrons->size(); i++){
+	if(is_real_ele[i] && is_best_ele[i])       hist("ele_type")->Fill(-2,weight);
+	else if(is_real_ele[i] && !is_best_ele[i]) hist("ele_type")->Fill(-1,weight);
+	else if(!is_real_ele[i] && is_best_ele[i]) hist("ele_type")->Fill(1,weight);
+	else if(!is_real_ele[i] && !is_best_ele[i])hist("ele_type")->Fill(2,weight);
+	else throw runtime_error("In LQToTopMuFakeRateHists.cxx: Uncovered combination of real and best electrons.");
+      }
+    }
+
+    //fill muon-type histogram
+    if(is_mc){
+      if(event.muons->size() >= 1){
+	for(unsigned int i=0; i<event.muons->size(); i++){
+	  if(is_real_muon[i])  hist("mu_type")->Fill(-1,weight);
+	  else if(!is_real_muon[i]) hist("mu_type")->Fill(2,weight);
+	}
+      }
+    }
+
+    //make sure to have a max. of 3 electrons in the event. Otherwise this part will not work as intended.
+    //find the ele that is not in the best pair
+    int idx_matched_jet = -1;
+    int idx_matched_jet_fake_ele = -1;
+    int idx_matched_jet_real_ele = -1;
+    double dr_min = 999;
+    for(unsigned int i=0; i<event.electrons->size(); i++){
+      if(is_best_ele[i]) continue;
+      
+      //find jet matching this ele within 0.4. If ambiguous, choose closest jet.
+      for(unsigned int j=0; j<event.jets->size(); j++){
+	double dr = deltaR(event.electrons->at(i), event.jets->at(j));
+	if(dr <= 0.4){
+	  if(event.electrons->size() > 3) throw runtime_error("In LQToTopMuFakeRateHists.cxx: More than 3 electrons in the event when identifying THE ONE faking jet. In case of >1 fake electrons, there should also be >1 faking jet. Modifiy the procedure or cut on Nele <= 3.");
+	  if(dr < dr_min){
+	    idx_matched_jet = j;
+	    dr_min = dr;
+	    
+	    //if that ele is truly a fake (on gen-lvl), fill separate histogram to subtract from data later on (MC only)
+	    if(!is_real_ele[i] && is_mc)     idx_matched_jet_fake_ele = j;
+	    else if(is_real_ele[i] && is_mc) idx_matched_jet_real_ele = j;
+	  }
+	}
+      }
+    }
+
+    //make sure to have a max of 1 muon in the event, otherwise this part will not work as intended
+    //same for muons
+    if(event.muons->size() >= 1){
+      int idx_matched_jet_mu = -1;
+      int idx_matched_jet_fake_mu = -1;
+      int idx_matched_jet_real_mu = -1;
+      double dr_min_mu = 999;
+      for(unsigned int i=0; i<event.muons->size(); i++){
+      
+	//find jet matching this ele within 0.4. If ambiguous, choose closest jet.
+	for(unsigned int j=0; j<event.jets->size(); j++){
+	  double dr = deltaR(event.muons->at(i), event.jets->at(j));
+	  if(dr <= 0.4){
+	    if(event.muons->size() > 1) throw runtime_error("In LQToTopMuFakeRateHists.cxx: More than 1 muon in the event when identifying THE ONE faking jet. Procedure only works in cases of == 1 muon.");
+	    if(dr < dr_min_mu){
+	      idx_matched_jet_mu = j;
+	      dr_min_mu = dr;
+	    
+	      //if that mu is truly a fake (on gen-lvl), fill separate histogram to subtract from data later on (MC only)
+	      if(!is_real_muon[i] && is_mc)     idx_matched_jet_fake_mu = j;
+	      else if(is_real_muon[i] && is_mc) idx_matched_jet_real_mu = j;
+	    }
+	  }
+	}
+      }
+
+      if(idx_matched_jet_mu != -1){
+	hist("pt_matchingjets_mu")->Fill(event.jets->at(idx_matched_jet_mu).pt(),weight);
+	hist("pt_matchingjets_mu_rebin")->Fill(event.jets->at(idx_matched_jet_mu).pt(),weight); 
+	hist("Int_matchingjets")->Fill(0.,weight);             
+
+	if(idx_matched_jet_fake_mu != -1){
+	  hist("pt_matchingjets_rebin_fakemu")->Fill(event.jets->at(idx_matched_jet_fake_mu).pt(),weight);
+	  hist("pt_matchingjets_fakemu")->Fill(event.jets->at(idx_matched_jet_fake_mu).pt(),weight);
+	  hist("Int_matchingjets_fakemu")->Fill(0.,weight);
+	  hist("N_faking_jets_mu")->Fill(0.,weight);
+	}
+	else if(idx_matched_jet_real_mu != -1){
+	  hist("pt_matchingjets_rebin_realmu")->Fill(event.jets->at(idx_matched_jet_real_mu).pt(),weight);
+	  hist("pt_matchingjets_realmu")->Fill(event.jets->at(idx_matched_jet_real_mu).pt(),weight);
+	  hist("Int_matchingjets_realmu")->Fill(0.,weight);
+	}
+	else if(is_mc) throw runtime_error("In LQToTopMuFakeRateHists.cxx: This MC-mu seems to be neither real nor fake. What is it?");
+      }
+    }
+
+    
+    if(idx_matched_jet != -1){
+      hist("pt_matchingjets")->Fill(event.jets->at(idx_matched_jet).pt(),weight);
+      hist("pt_matchingjets_rebin")->Fill(event.jets->at(idx_matched_jet).pt(),weight);    
+
+      if(idx_matched_jet_fake_ele != -1){
+	hist("pt_matchingjets_rebin_fakeele")->Fill(event.jets->at(idx_matched_jet_fake_ele).pt(),weight);
+	hist("pt_matchingjets_fakeele")->Fill(event.jets->at(idx_matched_jet_fake_ele).pt(),weight);
+	hist("N_faking_jets")->Fill(0.,weight);
+      }
+      else if(idx_matched_jet_real_ele != -1){
+	hist("pt_matchingjets_rebin_realele")->Fill(event.jets->at(idx_matched_jet_real_ele).pt(),weight);
+	hist("pt_matchingjets_realele")->Fill(event.jets->at(idx_matched_jet_real_ele).pt(),weight);
+      }
+      else if(is_mc) throw runtime_error("In LQToTopMuFakeRateHists.cxx: This MC-ele seems to be neither real nor fake. What is it?");
+    }
+
+
+
+
+
+    //Fill pt of all jets for the denominator, again only for at least 2 electrons
+    for(auto & jet : *event.jets){
+      hist("pt_alljets")->Fill(jet.pt(),weight);
+      hist("pt_alljets_rebin")->Fill(jet.pt(),weight);
+      hist("Int_alljets")->Fill(0.,weight);
+    }
+
+  }
+} //Methode
+
+
+
+LQToTopMuFakeRateHists::~LQToTopMuFakeRateHists(){}

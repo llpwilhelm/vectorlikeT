@@ -1,0 +1,175 @@
+ ( INFO  )  SCycleController   : Initializing
+ ( INFO  )  SCycleController   : Deleting all analysis cycle algorithms from memory
+ ( INFO  )  SCycleController   : Reading xml file: 'VLQ_LH_700_1.xml'
+ ( INFO  )  SCycleController   : Created cycle 'uhh2::AnalysisModuleRunner'
+ ( INFO  )  SCycleBaseExec     : Initializing from configuration
+ ( INFO  )  SCycleBaseExec     : Reading SInputData: MC - VLQ_LH_700
+ ( INFO  )  SCycleConfig       : ===========================================================
+ ( INFO  )  SCycleConfig       :                     Cycle configuration
+ ( INFO  )  SCycleConfig       :   - Running mode: LOCAL
+ ( INFO  )  SCycleConfig       :   - Target luminosity: 35867
+ ( INFO  )  SCycleConfig       :   - Output directory: /nfs/dust/cms/user/wilhelml/SingleVLQ/Preselection/NOMINAL//workdir_SingleVLQ_Pre/
+ ( INFO  )  SCycleConfig       :   - Post-fix: _0
+ ( INFO  )  SInputData         :  ---------------------------------------------------------
+ ( INFO  )  SInputData         :  Type               : MC
+ ( INFO  )  SInputData         :  Version            : VLQ_LH_700
+ ( INFO  )  SInputData         :  Total luminosity   : 100000pb-1
+ ( INFO  )  SInputData         :  NEventsMax         : -1
+ ( INFO  )  SInputData         :  NEventsSkip        : 0
+ ( INFO  )  SInputData         :  Cacheable          : No
+ ( INFO  )  SInputData         :  Skip validation    : No
+ ( INFO  )  SInputData         :  Skip file lookup   : No
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_1.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_10.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_11.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_12.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_13.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_14.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_2.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_3.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_4.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_5.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_6.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_7.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_8.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Input File         : '/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8/190211_125412/0000/Ntuple_9.root' (file) | '0' (lumi)
+ ( INFO  )  SInputData         :  Tree               : 'AnalysisTree' (name) | 'Flat input tree' (type)
+ ( INFO  )  SInputData         :  Tree               : 'AnalysisTree' (name) | 'Flat output tree' (type)
+ ( INFO  )  SInputData         :  ---------------------------------------------------------
+ ( INFO  )  SCycleConfig       : ===========================================================
+ ( INFO  )  SCycleController   : Job 'ExampleCycleJob' configured
+ ( INFO  )  SCycleController   : Time needed for initialisation:    2.7 s
+ ( INFO  )  SCycleController   : Entering ExecuteAllCycles()
+ (WARNING)  TClass::Init       : no dictionary for class PuppiParticle is available
+ ( INFO  )  SInputData         : Input type "MC" version "VLQ_LH_700" : 100000 events
+ ( INFO  )  SCycleController   : Executing Cycle #0 ('uhh2::AnalysisModuleRunner') locally
+ ( INFO  )  SCycleController   : Processing input data type: MC version: VLQ_LH_700
+ ( INFO  )  SCycleBaseExec     : Initialised InputData "MC" (Version:VLQ_LH_700) on worker node
+Hello folks, from vectorlikeTtestpreselectionModule!
+ AnalysisModule = vectorlikeTtestpreselectionModule
+ ElectronCollection = slimmedElectronsUSER
+ GenInfoName = genInfo
+ GenJetCollection = slimmedGenJets
+ GenParticleCollection = GenParticles
+ JetCollection = slimmedJets
+ METName = slimmedMETs
+ MuonCollection = slimmedMuonsUSER
+ PrimaryVertexCollection = offlineSlimmedPrimaryVertices
+ TauCollection = slimmedTaus
+ TestKey = TestKeyValue
+ dataset_lumi = 1.000000000000000000e+05
+ dataset_type = MC
+ dataset_version = VLQ_LH_700
+ jecsmear_direction = nominal
+ jersmear_direction = nominal
+ lumi_file = /nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/data/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.root
+ lumihists_lumi_per_bin = 1000.
+ n_events_total = 1.000000000000000000e+05
+ pileup_directory = /nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/data/MyMCPileupHistogram.root
+ pileup_directory_data = /nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/data/MyDataPileupHistogram.root
+ target_lumi = 3.586700000000000000e+04
+ use_sframe_weight = false
+ ( INFO  )  SCycleBaseExec     : Processing entry: 999 (999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1999 (1999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2999 (2999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3999 (3999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4999 (4999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5999 (5999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6999 (6999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 599 (7999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1599 (8999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2599 (9999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3599 (10999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4599 (11999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5599 (12999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6599 (13999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 199 (14999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1199 (15999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2199 (16999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3199 (17999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4199 (18999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5199 (19999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6199 (20999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 7199 (21999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 799 (22999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1799 (23999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2799 (24999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3799 (25999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4799 (26999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5799 (27999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6799 (28999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 399 (29999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1399 (30999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2399 (31999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3399 (32999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4399 (33999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5399 (34999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6399 (35999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 7399 (36999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 999 (37999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1999 (38999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2999 (39999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3999 (40999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 999 (41999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1999 (42999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2999 (43999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3999 (44999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4999 (45999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5999 (46999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6999 (47999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 599 (48999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1599 (49999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2599 (50999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3599 (51999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4599 (52999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5599 (53999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6599 (54999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 399 (55999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1399 (56999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2399 (57999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3399 (58999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4399 (59999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5399 (60999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6399 (61999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 7399 (62999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 999 (63999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1999 (64999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2999 (65999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3999 (66999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4999 (67999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5999 (68999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6999 (69999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 599 (70999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1599 (71999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2599 (72999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3599 (73999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4599 (74999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5599 (75999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6599 (76999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 199 (77999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1199 (78999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2199 (79999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3199 (80999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4199 (81999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5199 (82999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6199 (83999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 7199 (84999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 799 (85999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1799 (86999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2799 (87999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3799 (88999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4799 (89999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5799 (90999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6799 (91999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 399 (92999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 1399 (93999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 2399 (94999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 3399 (95999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 4399 (96999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 5399 (97999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 6399 (98999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Processing entry: 7399 (99999 / 100000 events processed so far)
+ ( INFO  )  SCycleBaseExec     : Terminated InputData "MC" (Version:VLQ_LH_700) on worker node
+ ( INFO  )  SCycleController   : Writing output of "uhh2::AnalysisModuleRunner" to: /nfs/dust/cms/user/wilhelml/SingleVLQ/Preselection/NOMINAL//workdir_SingleVLQ_Pre/uhh2.AnalysisModuleRunner.MC.VLQ_LH_700_0.root
+ ( INFO  )  SCycleController   : Overall cycle statistics:
+ ( INFO  )  SCycleController   :     100000 Events - Real time 1734.25 s  -    58 Hz | CPU time 350.55 s  -   285 Hz

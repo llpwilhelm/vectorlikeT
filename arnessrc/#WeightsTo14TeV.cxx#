@@ -1,0 +1,92 @@
+#include "UHH2/LQToTopMu/include/WeightsTo14TeV.h"
+#include "UHH2/common/include/Utils.h"
+#include <iostream>
+
+using namespace std;
+
+WeightsTo14TeV::WeightsTo14TeV(uhh2::Context & ctx, TString pdfname){
+
+  if( ( gSystem->Load("libLHAPDF") )==-1){
+    std::cerr << "libLHAPDF not found, no pdf weights will be applied. To apply pdf re-weighting, add path to libLHAPDF.so to LD_LIBRARY_PATH" << std::endl;
+    m_libvalid=false;
+    return;
+  }
+  m_libvalid=true;
+  
+  LHAPDF::initPDFSet(1, (std::string)(pdfname+".LHgrid"));
+
+  for(int i=0; i<=LHAPDF::numberPDF(); i++){
+    LHAPDF::PDF* pdf = LHAPDF::mkPDF( (std::string) pdfname, i);
+
+    //push back all pdfs (nominal + syst for example). [0]th entry is the nominal one.
+    m_pdfs.push_back(pdf);
+  }
+
+  h_x13_1 = ctx.get_handle<double>("x13_1");
+  h_x13_2 = ctx.get_handle<double>("x13_2");
+  h_x14_1 = ctx.get_handle<double>("x14_1");
+  h_x14_2 = ctx.get_handle<double>("x14_2");
+  h_Q = ctx.get_handle<double>("Q");
+  h_xf13_1 = ctx.get_handle<double>("xf13_1");
+  h_xf13_2 = ctx.get_handle<double>("xf13_1");
+  h_xf14_1 = ctx.get_handle<double>("xf14_1");
+  h_xf14_2 = ctx.get_handle<double>("xf14_2");
+  h_f1 = ctx.get_handle<int>("f1");
+  h_f2 = ctx.get_handle<int>("f2");
+  h_weight13 = ctx.get_handle<double>("weight13");
+  h_weight14 = ctx.get_handle<double>("weight14");
+  h_sf = ctx.get_handle<double>("sf");
+
+}
+
+double WeightsTo14TeV::calculateWeight(const uhh2::Event & event){
+  if(!m_libvalid) return -1.;
+
+  double x1=event.genInfo->pdf_x1();
+  double x2=event.genInfo->pdf_x2();
+ 
+  int id1 = event.genInfo->pdf_id1();
+  int id2 = event.genInfo->pdf_id2();
+ 
+  double q = event.genInfo->pdf_scalePDF();
+
+  double xpdf1 = m_pdfs[0]->xfxQ(id1, x1, q);
+  double xpdf2 = m_pdfs[0]->xfxQ(id2, x2, q);
+  //cout <<"x1: " << x1 << ", x2: " << x2 << ", q: " << q << ", xpdf1: " << xpdf1 << ", xpdf2: " << xpdf2 << endl;
+
+  //new values of x can be smaller to achieve the same partonic sqrt(s)
+  double x1_14tev = x1 * (13./14.);
+  double x2_14tev = x2 * (13./14.);
+
+  double xpdf1_14tev = m_pdfs[0]->xfxQ(id1, x1_14tev, q);
+  double xpdf2_14tev = m_pdfs[0]->xfxQ(id1, x2_14tev, q);
+  //cout <<"x1_14tev: " << x1_14tev << ", x2_tev: " << x2_14tev << ", q: " << q << ", xpdf1_tev: " << xpdf1_14tev << ", xpdf2_tev: " << xpdf2_14tev << endl;
+
+  double w0 = xpdf1 * xpdf2;
+  if(w0 == 0) return -1.;
+    
+  double weight = xpdf1_14tev * xpdf2_14tev / w0;
+  if(weight == 0) return -1.;
+
+  //cout << "Old weight: " << w0 << ", new weight: " << xpdf1_14tev * xpdf2_14tev << ", SF: " << weight << endl << endl;
+
+  //Set handles
+  event.set(h_x13_1, x1);
+  event.set(h_x13_2, x2);
+  event.set(h_x14_1, x1_14tev);
+  event.set(h_x14_2, x2_14tev);
+  event.set(h_q, Q);
+  event.set(h_xf13_1, xpdf1);
+  event.set(h_xf13_2, xpdf2);
+  event.set(h_xf14_1, xpdf1_14tev);
+  event.set(h_xf14_2, xpdf2_14tev);
+  event.set(h_f1, id1);
+  event.set(h_f2, id2);
+  event.set(h_weight13, w0);
+  event.set(h_weight14, xpdf1_14tev * xpdf2_14tev);
+  event.set(h_sf, weight);
+
+  // This weight has to be applied to the event.weight
+  return weight;
+  
+}

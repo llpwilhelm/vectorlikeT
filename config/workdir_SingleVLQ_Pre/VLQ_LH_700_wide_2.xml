@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JobConfiguration PUBLIC "" "JobConfig.dtd"[
+
+
+	  <!ENTITY TargetLumi      "35867">
+	  <!ENTITY PRESELdir       "/nfs/dust/cms/user/wilhelml/SingleVLQ/Preselection/NOMINAL">
+	  <!ENTITY b_Cacheable     "False">
+	  <!ENTITY NEVT            "-1">
+	  <!ENTITY PROOFdir        "/nfs/dust/cms/user/wilhelml/.proof2">
+
+
+<!ENTITY VLQ_LH_600 SYSTEM "/nfs/dust/cms/user/abenecke/CMSSW_8_0_24_patch1/src/UHH2/scripts/crab/singleVLQ/TprimeBToTH_M-600_RH_TuneCUETP8M1_13TeV-madgraph-pythia8.xml">
+<!ENTITY VLQ_LH_650 SYSTEM "/nfs/dust/cms/user/abenecke/CMSSW_8_0_24_patch1/src/UHH2/scripts/crab/singleVLQ/TprimeBToTH_M-650_RH_TuneCUETP8M1_13TeV-madgraph-pythia8.xml">
+
+<!ENTITY VLQ_LH_700 SYSTEM      "/nfs/dust/cms/user/abenecke/CMSSW_8_0_24_patch1/src/UHH2/scripts/crab/singleVLQ/TprimeBToTH_M-700_LH_TuneCUETP8M1_13TeV-madgraph-pythia8.xml">
+<!ENTITY VLQ_LH_700_wide SYSTEM "/nfs/dust/cms/user/abenecke/CMSSW_8_0_24_patch1/src/UHH2/scripts/crab/singleVLQ/TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8.xml">
+
+<!-- <!ENTITY TTbar SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_TT_TuneCUETP8M2T4_both.xml"> -->
+
+<!-- <!ENTITY WJetsHT-70To100 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-70To100.xml"> -->
+<!-- <!ENTITY WJetsHT-100To200 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-100To200.xml"> -->
+<!-- <!ENTITY WJetsHT-200To400 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-200To400.xml"> -->
+<!-- <!ENTITY WJetsHT-400To600 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-400To600.xml"> -->
+<!-- <!ENTITY WJetsHT-600To800 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-600To800.xml"> -->
+<!-- <!ENTITY WJetsHT-800To1200 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-800To1200.xml"> -->
+<!-- <!ENTITY WJetsHT-1200To2500 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-1200To2500.xml"> -->
+<!-- <!ENTITY WJetsHT-2500ToInf SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WJetsToLNu_HT-2500ToInf.xml"> -->
+
+
+<!-- <!ENTITY DYJetsM50_HT70to100 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-70to100.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT100to200 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-100to200.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT200to400 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-200to400.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT400to600 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-400to600.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT600to800 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-600to800.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT800to1200 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-800to1200.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT1200to2500 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-1200to2500.xml"> -->
+<!-- <!ENTITY DYJetsM50_HT2500toInf SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_DYJetsToLL_M-50_HT-2500toInf.xml"> -->
+
+<!-- <!ENTITY SingleTop_TTbar_sch SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/ST_s-channel_4f_leptonDecays_13TeV.xml"> -->
+<!-- <!ENTITY SingleTop_T_tch SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_ST_t-channel_top_4f_inclusiveDecays.xml"> -->
+<!-- <!ENTITY SingleTop_Tbar_tch SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_ST_t-channel_antitop_4f_inclusiveDecays.xml"> -->
+<!-- <!ENTITY SingleTop_T_tWch SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/ST_tW_top_5f_inclusiveDecays_13TeV.xml"> -->
+<!-- <!ENTITY SingleTop_Tbar_tWch SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/ST_tW_antitop_5f_inclusiveDecays_13TeV.xml"> -->
+
+<!-- <!ENTITY WW_2L2Nu SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WW_2L2Nu.xml"> -->
+<!-- <!ENTITY WW_LNuQQ SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WW_LNuQQ.xml"> -->
+<!-- <!ENTITY WZ_1L1NuQQ SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WZ_1L1Nu2Q.xml"> -->
+<!-- <!ENTITY WZ_2L2Q SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WZ_2L2Q.xml"> -->
+<!-- <!ENTITY WZ_3LNu SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_WZ_3LNu.xml"> -->
+<!-- <!ENTITY ZZ_2L2Nu SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_ZZ_2L2Nu.xml"> -->
+<!-- <!ENTITY ZZ_2L2Q SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_ZZ_2L2Q.xml"> -->
+<!-- <!ENTITY ZZ_4L SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_ZZ_4L.xml"> -->
+
+<!-- <!ENTITY TTW SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_TTW.xml"> -->
+<!-- <!ENTITY TTZ SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_TTZ.xml"> -->
+
+<!-- <!ENTITY QCDPT15to20 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-15to20_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT20to30 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-20to30_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT30to50 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-30to50_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT50to80 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-50to80_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT80to120 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-80to120_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT120to170 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-120to170_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT170to300 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-170to300_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT300to470 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-300to470_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT470to600 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-470to600_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT600to800 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-600to800_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT800to1000 SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-800to1000_MuEnrichedPt5.xml"> -->
+<!-- <!ENTITY QCDPT1000toInf SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/MC_QCD_Pt-1000toInf_MuEnrichedPt5.xml"> -->
+
+<!ENTITY DATA_B SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016B_03Feb.xml">
+<!ENTITY DATA_C SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016C_03Feb.xml">
+<!ENTITY DATA_D SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016D_03Feb.xml">
+<!ENTITY DATA_E SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016E_03Feb.xml">
+<!ENTITY DATA_F SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016F_03Feb.xml">
+<!ENTITY DATA_G SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016G_03Feb.xml">
+<!ENTITY DATA_H SYSTEM "/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/datasets/RunII_80X_v3/DATA_SingleMuon_Run2016H_03Feb.xml">
+
+]>
+
+
+
+<!--
+<ConfigParse NEventsBreak="0" FileSplit="35" AutoResubmit="5"/>
+<ConfigSGE RAM="4" DISK="3" Mail="leo.wilhelm@desy.de" Notification="as" Workdir="workdir_SingleVLQ_Pre"/>
+-->
+
+<!-- OutputLevel controls which messages are printed; set to VERBOSE or DEBUG for more verbosity, to WARNING or ERROR for less -->
+<JobConfiguration JobName="ExampleCycleJob" OutputLevel="INFO">
+	<Library Name="libSUHH2vectorlikeT"/>
+	<Package Name="libSUHH2vectorlikeT"/>
+	<Cycle Name="uhh2::AnalysisModuleRunner" OutputDirectory="/nfs/dust/cms/user/wilhelml/SingleVLQ/Preselection/NOMINAL//workdir_SingleVLQ_Pre/" PostFix="_1" TargetLumi="35867">
+		<InputData Cacheable="False" Lumi="388936.0" Type="MC" Version="VLQ_LH_700_wide">
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_41.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_42.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_43.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_44.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_45.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_46.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_47.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_48.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_49.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_5.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_50.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_51.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_52.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_53.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_6.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_7.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_8.root" Lumi="0.0"/>
+			<In FileName="/pnfs/desy.de/cms/tier2//store/user/abenecke/PuppiCentral//TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/crab_TprimeBToTH_M-700_Width-10p_LH_TuneCUETP8M2T4_13TeV-madgraph-pythia8/190211_125212/0000/Ntuple_9.root" Lumi="0.0"/>
+			<OutputTree Name="AnalysisTree"/>
+			<InputTree Name="AnalysisTree"/>
+		</InputData>
+		<UserConfig>
+			<Item Name="PrimaryVertexCollection" Value="offlineSlimmedPrimaryVertices"/>
+			<Item Name="ElectronCollection" Value="slimmedElectronsUSER"/>
+			<Item Name="MuonCollection" Value="slimmedMuonsUSER"/>
+			<Item Name="TauCollection" Value="slimmedTaus"/>
+			<Item Name="JetCollection" Value="slimmedJets"/>
+			<Item Name="METName" Value="slimmedMETs"/>
+			<Item Name="GenJetCollection" Value="slimmedGenJets"/>
+			<Item Name="GenParticleCollection" Value="GenParticles"/>
+			<Item Name="GenInfoName" Value="genInfo"/>
+			<Item Name="lumi_file" Value="/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/data/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.root"/>
+			<Item Name="lumihists_lumi_per_bin" Value="1000."/>
+			<Item Name="AnalysisModule" Value="vectorlikeTtestpreselectionModule"/>
+			<Item Name="use_sframe_weight" Value="false"/>
+			<Item Name="pileup_directory" Value="/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/data/MyMCPileupHistogram.root"/>
+			<Item Name="pileup_directory_data" Value="/nfs/dust/cms/user/wilhelml/CMSSW_8_0_24_patch1/src/UHH2/common/data/MyDataPileupHistogram.root"/>
+			<Item Name="jecsmear_direction" Value="nominal"/>
+			<Item Name="jersmear_direction" Value="nominal"/>
+			<Item Name="TestKey" Value="TestKeyValue"/>
+		</UserConfig>
+	</Cycle>
+</JobConfiguration>
