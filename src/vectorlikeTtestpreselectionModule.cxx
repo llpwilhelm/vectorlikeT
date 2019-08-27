@@ -110,7 +110,7 @@ vectorlikeTtestpreselectionModule::vectorlikeTtestpreselectionModule(Context & c
     lep_is_mu = true;
     
     muon_sel.reset(new NMuonSelection(1, 1));
-    ele_sel.reset(new NElectronSelection(0, 0));
+    ele_sel.reset(new NElectronSelection(1, 1));
     
     
     jet_sel.reset(new NJetSelection(3, -1));
@@ -204,21 +204,23 @@ bool vectorlikeTtestpreselectionModule::process(Event & event) {
   h_mu_cleaner->fill(event);
   h_event_cleaner->fill(event);
   
-  if(lep_is_mu){
-    if(!(muon_sel->passes(event))) return false;
+  
+    if(!((muon_sel->passes(event)) or (ele_sel->passes(event)))) return false;
+    if(muon_sel->passes(event)){
     // h_muon->fill(event);
     h_jets_muon->fill(event);
     h_ele_muon->fill(event);
     h_mu_muon->fill(event);
     h_event_muon->fill(event);
-  
-    if(!(ele_sel->passes(event))) return false;
+    }
+    else{
+    //lep_is_mu = false;
     // h_electron->fill(event);
     h_jets_electron->fill(event);
     h_ele_electron->fill(event);
     h_mu_electron->fill(event);
     h_event_electron->fill(event);
-}
+    }
   
 /*  if(!lep_is_mu){
     if(!(muon_sel->passes(event))) return false;
