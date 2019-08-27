@@ -58,7 +58,7 @@ private:
   MuonId MuId;
   ElectronId EleId;
   JetId Jet_ID;
-
+  bool lep_is_mu;
   bool is_mc;
 
 };
@@ -82,7 +82,7 @@ vectorlikeTtestpreselectionModule::vectorlikeTtestpreselectionModule(Context & c
     EleId = AndId<Electron>(ElectronID_Spring16_tight, PtEtaCut(30.0, 2.4));
     MuId = AndId<Muon>(MuonIDTight(), PtEtaCut(30.0, 2.4), MuonIso(0.15));
     Jet_ID = AndId<Jet>(JetPFID(JetPFID::WP_LOOSE), PtEtaCut(30.0, 2.4));
-
+    
     is_mc = ctx.get("dataset_type") == "MC";
     
     // 1. setup other modules. CommonModules and the JetCleaner:
@@ -106,8 +106,13 @@ vectorlikeTtestpreselectionModule::vectorlikeTtestpreselectionModule(Context & c
     // njet_sel.reset(new NJetSelection(2)); // see common/include/NSelections.h
     // dijet_sel.reset(new DijetSelection()); // see vectorlikeTSelections
 
+    
+    lep_is_mu = true;
+    
     muon_sel.reset(new NMuonSelection(1, 1));
     ele_sel.reset(new NElectronSelection(0, 0));
+    
+    
     jet_sel.reset(new NJetSelection(3, -1));
 
 
@@ -198,21 +203,39 @@ bool vectorlikeTtestpreselectionModule::process(Event & event) {
   h_ele_cleaner->fill(event);
   h_mu_cleaner->fill(event);
   h_event_cleaner->fill(event);
- 
-  if(!(muon_sel->passes(event))) return false;
-  // h_muon->fill(event);
-  h_jets_muon->fill(event);
-  h_ele_muon->fill(event);
-  h_mu_muon->fill(event);
-  h_event_muon->fill(event);
-    
-  if(!(ele_sel->passes(event))) return false;
-  // h_electron->fill(event);
-  h_jets_electron->fill(event);
-  h_ele_electron->fill(event);
-  h_mu_electron->fill(event);
-  h_event_electron->fill(event);
-
+  
+  if(lep_is_mu){
+    if(!(muon_sel->passes(event))) return false;
+    // h_muon->fill(event);
+    h_jets_muon->fill(event);
+    h_ele_muon->fill(event);
+    h_mu_muon->fill(event);
+    h_event_muon->fill(event);
+  
+    if(!(ele_sel->passes(event))) return false;
+    // h_electron->fill(event);
+    h_jets_electron->fill(event);
+    h_ele_electron->fill(event);
+    h_mu_electron->fill(event);
+    h_event_electron->fill(event);
+}
+  
+/*  if(!lep_is_mu){
+    if(!(muon_sel->passes(event))) return false;
+    // h_muon->fill(event);
+    h_jets_muon->fill(event);
+    h_ele_muon->fill(event);
+    h_mu_muon->fill(event);
+    h_event_muon->fill(event);
+  
+    if(!(ele_sel->passes(event))) return false;
+    // h_electron->fill(event);
+    h_jets_electron->fill(event);
+    h_ele_electron->fill(event);
+    h_mu_electron->fill(event);
+    h_event_electron->fill(event);
+  } */  
+      
   if(!jet_sel->passes(event)) return false;
   // h_jets->fill(event);
   h_jets_jets->fill(event);
